@@ -1,5 +1,5 @@
 ### Hi There 👋
-## My Name is Filippo Zattoni & I'm a Front-End Engineer 💫
+## My Name is Filippo Zattoni & I'm a IT student 💫
 
 - 📍 I'm currently located in Verona Italy, VR
 - 🔭 I’m currently Studing
@@ -7,9 +7,8 @@
 
 <div style="display:flex; flex-direction:row;">
 <a href="https://www.linkedin.com/in/srhmendez/" target="_blank"> <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a><a href="mailto:srhmendez@gmail.com" target="_blank">
-<img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
-  <a href="https://medium.com/sarah-mendez-portfolio" target="_blank">
-<img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white"></a>
+<a href="mailto:filippozattoni00@gmail.com" target="_blank"> <img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+
 
 </div>
 <br>
