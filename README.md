@@ -1,5 +1,5 @@
 ### Hi There 👋
-## My Name is Filippo Zattoni & I'm a IT student 💫
+## My Name is Filippo & I'm a IT student 💫
 
 - 📍 I'm currently located in Verona Italy, VR
 - 🔭 I’m currently Studing
