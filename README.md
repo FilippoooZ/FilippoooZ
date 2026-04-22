@@ -1,5 +1,5 @@
 # Filippo Zattoni
-### IT Student | Computer Science at University of Verona
+### IT Student | 
 
 <div align="left">
   <img src="https://img.shields.io/badge/Location-Verona,%20Italy-0078D4?style=flat-square&logo=googlemaps&logoColor=white" /> <br>
