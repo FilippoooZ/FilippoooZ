@@ -3,7 +3,7 @@
 
 <div align="left">
   <img src="https://img.shields.io/badge/Location-Verona,%20Italy-0078D4?style=flat-square&logo=googlemaps&logoColor=white" /> <br>
-  <img src="https://img.shields.io/badge/Status-Studying%20Computer%20Science-success?style=flat-square&logo=gitbook&logoColor=white" />
+  <img src="https://img.shields.io/badge/Status-Studying%20IT%20S-success?style=flat-square&logo=gitbook&logoColor=white" />
 </div>
 
 ---
