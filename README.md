@@ -1,24 +1,45 @@
 # Hi there 👋
 
-I'm **Filippo** – Full-stack developer specializing in Django, local AI/RAG systems, and SQL Server tooling.
+I'm **Filippo** – Computer Science student passionate about **full-stack development**
 
-### 🔧 Tech Stack
+### 🔧 Languages & Frameworks
 
 <div align="left">
   <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white&style=for-the-badge" />
   <img src="https://img.shields.io/badge/Django-092E20?logo=django&logoColor=white&style=for-the-badge" />
   <img src="https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/HTML5-E34C26?logo=html5&logoColor=white&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white&style=for-the-badge" />
+</div>
+
+### 💾 Databases & Data
+
+<div align="left" style="margin-top: 10px;">
   <img src="https://img.shields.io/badge/SQLServer-CC2927?logo=microsoft-sql-server&logoColor=white&style=for-the-badge" />
   <img src="https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white&style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white&style=for-the-badge" />
-  <img src="https://img.shields.io/badge/GitHub%20Actions-2088FF?logo=github-actions&logoColor=white&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/PostgreSQL-336791?logo=postgresql&logoColor=white&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Qdrant-FF6B35?logo=&logoColor=white&style=for-the-badge" />
 </div>
+
+### 🤖 AI/ML & LLMs
 
 <div align="left" style="margin-top: 10px;">
   <img src="https://img.shields.io/badge/Ollama-000000?logo=&logoColor=white&style=for-the-badge" />
   <img src="https://img.shields.io/badge/LlamaIndex-FF6B6B?logo=&logoColor=white&style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Qdrant-FF6B35?logo=&logoColor=white&style=for-the-badge" />
   <img src="https://img.shields.io/badge/RAG-4A90E2?logo=&logoColor=white&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Vector%20Search-9B59B6?logo=&logoColor=white&style=for-the-badge" />
+</div>
+
+### 🛠️ Tools & DevOps
+
+<div align="left" style="margin-top: 10px;">
+  <img src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/GitHub%20Actions-2088FF?logo=github-actions&logoColor=white&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/VS%20Code-007ACC?logo=visual-studio-code&logoColor=white&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Windows-0078D4?logo=windows&logoColor=white&style=for-the-badge" />
+  <img src="https://img.shields.io/badge/macOS-000000?logo=apple&logoColor=white&style=for-the-badge" />
 </div>
 
 ---
