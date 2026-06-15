@@ -21,21 +21,25 @@
 ### 👷 Currently working on
 
 <!-- WORKING_ON_START -->
+- [FilippoooZ](https://github.com/FilippoooZ/FilippoooZ) - No description
 <!-- WORKING_ON_END -->
 
 ### 🌱 Latest projects
 
 <!-- LATEST_PROJECTS_START -->
+- [FilippoooZ](https://github.com/FilippoooZ/FilippoooZ) - No description
 <!-- LATEST_PROJECTS_END -->
 
 ### 🔨 Recent Pull Requests
 
 <!-- RECENT_PRS_START -->
+
 <!-- RECENT_PRS_END -->
 
 ### ⭐ Recent Stars
 
 <!-- RECENT_STARS_START -->
+
 <!-- RECENT_STARS_END -->
 
 ### 📊 GitHub Stats
