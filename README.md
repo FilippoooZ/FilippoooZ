@@ -56,5 +56,4 @@
 ### 📫 How to reach me
 
 - GitHub: [@FilippoooZ](https://github.com/FilippoooZ)
-- Email: filippo@example.com
 - Location: Verona, Italy
