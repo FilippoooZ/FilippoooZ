@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="FilippoooZ" src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&duration=2000&pause=1000&color=00A8E8&center=true&vCenter=true&width=500&lines=Ciao%2C+sono+Filippo;Computer+Science+Student;Django+%2B+LLM+Developer" />
+  <img alt="FilippoooZ" src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=24&duration=2000&pause=1000&color=00A8E8&center=true&vCenter=true&width=500&lines=Ciao%2C+sono+Filippo;Computer+Science+Student" />
 </p>
 
 ### 🔗 Socials
