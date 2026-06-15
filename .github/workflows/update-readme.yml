@@ -2,40 +2,50 @@ name: Update README
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    # Ogni giorno alle 00:00 UTC
+    - cron: "0 0 * * *"
   workflow_dispatch:
-
-permissions:
-  contents: write
-  repositories: read
+  push:
+    branches:
+      - main
+    paths:
+      - "update_readme.py"
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.12'
+          python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install PyGithub --upgrade
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
 
       - name: Update README
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python update_readme.py
+        run: |
+          python update_readme.py
 
-      - name: Commit changes
+      - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add README.md
-          if git diff --quiet && git diff --staged --quiet; then
-            echo "No changes detected"
+          
+          if git diff --quiet README.md; then
+            echo "No changes to commit"
           else
-            git commit -m "chore: auto-update README"
+            git add README.md
+            git commit -m "docs: Update README with latest activity"
             git push
           fi
