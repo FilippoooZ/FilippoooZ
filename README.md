@@ -21,13 +21,13 @@
 ### 👷 Currently working on
 
 <!-- WORKING_ON_START -->
-- [FilippoooZ](https://github.com/FilippoooZ/FilippoooZ) - No description
+- [FilippoooZ](https://github.com/FilippoooZ/FilippoooZ)
 <!-- WORKING_ON_END -->
 
 ### 🌱 Latest projects
 
 <!-- LATEST_PROJECTS_START -->
-- [FilippoooZ](https://github.com/FilippoooZ/FilippoooZ) - No description
+- [FilippoooZ](https://github.com/FilippoooZ/FilippoooZ)
 <!-- LATEST_PROJECTS_END -->
 
 ### 🔨 Recent Pull Requests
