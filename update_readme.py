@@ -1,27 +1,34 @@
 #!/usr/bin/env python3
 """
 GitHub README Generator - Aggiorna il README con dati dinamici da GitHub API (GraphQL v4)
+Migliorato: supporta GH_PAT come fallback, logging dei response per debug e timeout.
 """
 
 import os
+import sys
 from datetime import datetime
 from typing import List, Dict, Any
 
 import requests
 
-GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
+# Preferisci un Personal Access Token (GH_PAT) se disponibile, altrimenti usa GITHUB_TOKEN
+GITHUB_TOKEN = os.getenv("GH_PAT") or os.getenv("GITHUB_TOKEN")
 USERNAME = "FilippoooZ"
 BASE_URL = "https://api.github.com"
 
 
 def fetch_graphql_data(username: str, token: str) -> Dict[str, Any]:
-    """Recupera tutti i dati necessari con una singola chiamata GraphQL v4."""
+    """Recupera tutti i dati necessari con una singola chiamata GraphQL v4.
+
+    Aggiunge logging in caso di errori HTTP o di risposta GraphQL per facilitare il debug
+    quando il workflow non restituisce dati (es. token senza permessi o profilo privato).
+    """
     url = f"{BASE_URL}/graphql"
     headers = {
         "Authorization": f"Bearer {token}",
         "Content-Type": "application/json",
     }
-    
+
     query = """
     query($login: String!) {
       user(login: $login) {
@@ -61,26 +68,43 @@ def fetch_graphql_data(username: str, token: str) -> Dict[str, Any]:
       }
     }
     """
-    
+
     try:
-        resp = requests.post(url, json={"query": query, "variables": {"login": username}}, headers=headers)
-        resp.raise_for_status()
+        resp = requests.post(url, json={"query": query, "variables": {"login": username}}, headers=headers, timeout=15)
+    except Exception as e:
+        print(f"Errore nella chiamata HTTP a GraphQL: {e}")
+        raise
+
+    # Log di base per debug
+    if resp.status_code != 200:
+        print(f"GraphQL HTTP status: {resp.status_code}")
+        try:
+            print("Response body:", resp.text)
+        except Exception:
+            print("Impossibile leggere response body")
+
+    try:
         res = resp.json()
     except Exception as e:
-        raise Exception(f"Errore nella richiesta HTTP a GraphQL: {e}")
-        
+        print("Impossibile decodificare JSON dalla response:", e)
+        print("Raw response:", getattr(resp, "text", "<no text>"))
+        raise
+
     if "errors" in res:
-        raise Exception(f"GitHub GraphQL API ha restituito errori: {res['errors']}")
-        
+        print("GraphQL errors:", res.get("errors"))
+        # Non fallare subito, ritorniamo comunque i dati se presenti per evitare partial updates
+
     data = res.get("data", {}).get("user")
     if not data:
-        raise Exception("Nessun dato utente trovato nella risposta di GitHub GraphQL API")
-        
+        # Stampa diagnostica per capire perché non ci sono dati
+        print("Nessun campo 'user' nella risposta GraphQL. Response completa:")
+        print(res)
+        raise Exception("Nessun dato utente trovato nella risposta di GitHub GraphQL API. Verifica che il token abbia i permessi corretti o che il profilo renda pubbliche le attività.")
+
     return data
 
 
 def extract_working_on(data: Dict) -> List[Dict[str, str]]:
-    """Estrae i repository su cui si è lavorato di recente."""
     nodes = data.get("workingOn", {}).get("nodes", [])
     result = []
     for node in nodes:
@@ -93,7 +117,6 @@ def extract_working_on(data: Dict) -> List[Dict[str, str]]:
 
 
 def extract_latest_projects(data: Dict) -> List[Dict[str, str]]:
-    """Estrae i progetti creati più di recente."""
     nodes = data.get("latestProjects", {}).get("nodes", [])
     result = []
     for node in nodes:
@@ -106,7 +129,6 @@ def extract_latest_projects(data: Dict) -> List[Dict[str, str]]:
 
 
 def extract_recent_prs(data: Dict) -> List[Dict[str, str]]:
-    """Estrae le pull request create di recente."""
     nodes = data.get("pullRequests", {}).get("nodes", [])
     result = []
     for node in nodes:
@@ -121,7 +143,6 @@ def extract_recent_prs(data: Dict) -> List[Dict[str, str]]:
 
 
 def extract_recent_stars(data: Dict) -> List[Dict[str, str]]:
-    """Estrae i repository stellati di recente."""
     edges = data.get("starredRepositories", {}).get("edges", [])
     result = []
     for edge in edges:
@@ -135,7 +156,6 @@ def extract_recent_stars(data: Dict) -> List[Dict[str, str]]:
 
 
 def format_markdown_list(items: List[Dict[str, str]], item_format: str) -> str:
-    """Formatta una lista di items in markdown, omettendo la descrizione se vuota o 'No description'."""
     lines = []
     for item in items:
         if "{description}" in item_format:
@@ -165,7 +185,6 @@ def format_markdown_list(items: List[Dict[str, str]], item_format: str) -> str:
 
 
 def replace_chunk(content: str, start_marker: str, end_marker: str, replacement: str) -> str:
-    """Sostituisce il contenuto tra due marker (inclusi i marker stessi)."""
     start_idx = content.find(start_marker)
     end_idx = content.find(end_marker)
     if start_idx == -1 or end_idx == -1 or end_idx < start_idx:
@@ -174,9 +193,8 @@ def replace_chunk(content: str, start_marker: str, end_marker: str, replacement:
 
 
 def update_readme():
-    """Aggiorna il README con i dati dinamici."""
     if not GITHUB_TOKEN:
-        raise Exception("Errore: la variabile d'ambiente GITHUB_TOKEN non è impostata.")
+        raise Exception("Errore: nessun token disponibile. Aggiungi GH_PAT come secret (consigliato) o assicurati che GITHUB_TOKEN sia presente.")
 
     # Recupera i dati via GraphQL
     data = fetch_graphql_data(USERNAME, GITHUB_TOKEN)
@@ -224,4 +242,8 @@ def update_readme():
 
 
 if __name__ == "__main__":
-    update_readme()
+    try:
+        update_readme()
+    except Exception as e:
+        print("Errore durante l'aggiornamento del README:", e)
+        sys.exit(1)
